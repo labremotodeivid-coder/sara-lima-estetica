@@ -10,6 +10,7 @@ const SERVICOS = [
     id: 1,
     tag: 'Corporal',
     icon: '<img src="assets/images/drenagem.png" alt="Drenagem Linfática" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
+    iconModal: '💧',
     nome: 'Drenagem Linf&#225;tica',
     preco: 'R$ 80,00',
     resumo: 'Elimine o incha&#231;o, ative a circula&#231;&#227;o e sinta leveza imediata.',
@@ -27,6 +28,7 @@ const SERVICOS = [
     id: 2,
     tag: 'Relaxante',
     icon: '&#127807;',
+    iconModal: '&#127807;',
     nome: 'Massagem Relaxante',
     preco: 'R$ 90,00',
     resumo: 'Alivie tens&#245;es, reduza o estresse e recarregue as energias.',
@@ -44,6 +46,7 @@ const SERVICOS = [
     id: 3,
     tag: 'Facial',
     icon: '&#10024;',
+    iconModal: '&#10024;',
     nome: 'Limpeza de Pele',
     preco: 'R$ 100,00',
     resumo: 'Pele limpa, oxigenada e radiante com protocolo completo.',
@@ -61,6 +64,7 @@ const SERVICOS = [
     id: 4,
     tag: 'Corporal',
     icon: '&#128293;',
+    iconModal: '&#128293;',
     nome: 'Massagem Modeladora',
     preco: 'R$ 95,00',
     resumo: 'Reduza medidas, combata a celulite e defina o contorno.',
@@ -78,6 +82,7 @@ const SERVICOS = [
     id: 5,
     tag: 'Relaxante',
     icon: '&#127800;',
+    iconModal: '&#127800;',
     nome: 'Escalda P&#233;s',
     preco: 'R$ 55,00',
     resumo: 'Hidrata&#231;&#227;o, relaxamento e cuidado completo para os seus p&#233;s.',
@@ -95,6 +100,7 @@ const SERVICOS = [
     id: 6,
     tag: 'Corporal',
     icon: '&#127802;',
+    iconModal: '&#127802;',
     nome: 'Depila&#231;&#227;o com Cera',
     preco: 'A partir de R$ 25,00',
     resumo: 'Pele lisa por mais tempo com depila&#231;&#227;o suave e eficiente.',
@@ -112,6 +118,7 @@ const SERVICOS = [
     id: 7,
     tag: 'Facial',
     icon: '&#127775;',
+    iconModal: '&#127775;',
     nome: 'Detox Facial',
     preco: 'R$ 110,00',
     resumo: 'Desintoxique a pele e recupere o brilho natural do seu rosto.',
@@ -179,7 +186,7 @@ function abrirModal(id) {
   const s = SERVICOS.find(x => x.id === id);
   if (!s) return;
 
-  document.getElementById('modalIcon').innerHTML   = s.icon;
+  document.getElementById('modalIcon').innerHTML   = s.iconModal || s.icon;
   document.getElementById('modalTag').innerHTML    = s.tag;
   document.getElementById('modalTitulo').innerHTML = s.nome;
   document.getElementById('modalDesc').innerHTML   = s.descricao;
@@ -252,7 +259,7 @@ function atualizarCarrinhoUI() {
   } else {
     lista.innerHTML = carrinho.map(s => `
       <div class="carrinho-item">
-        <span class="carrinho-item-icon">${s.icon}</span>
+        <span class="carrinho-item-icon">${s.iconModal || s.icon}</span>
         <div class="carrinho-item-info">
           <div class="carrinho-item-nome">${s.nome}</div>
           <div class="carrinho-item-tag">${s.preco} &middot; ${s.duracao}</div>
