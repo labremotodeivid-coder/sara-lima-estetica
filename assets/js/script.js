@@ -63,7 +63,7 @@ const SERVICOS = [
   {
     id: 4,
     tag: 'Corporal',
-    icon: '🔥',
+    icon: '<img src="assets/images/modeladora.jpg" alt="Massagem Modeladora" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '🔥',
     nome: 'Massagem Modeladora',
     preco: 'R$ 95,00',
@@ -81,7 +81,7 @@ const SERVICOS = [
   {
     id: 5,
     tag: 'Relaxante',
-    icon: '🌸',
+    icon: '<img src="assets/images/pes.jpg" alt="Escalda Pés" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '🌸',
     nome: 'Escalda Pés',
     preco: 'R$ 55,00',
@@ -99,7 +99,7 @@ const SERVICOS = [
   {
     id: 6,
     tag: 'Corporal',
-    icon: '🌺',
+    icon: '<img src="assets/images/cera.jpg" alt="Depilação com Cera" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '🌺',
     nome: 'Depilação com Cera',
     preco: 'A partir de R$ 25,00',
@@ -117,7 +117,7 @@ const SERVICOS = [
   {
     id: 7,
     tag: 'Facial',
-    icon: '🌟',
+    icon: '<img src="assets/images/detox.jpg" alt="Detox Facial" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '🌟',
     nome: 'Detox Facial',
     preco: 'R$ 110,00',
