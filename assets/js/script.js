@@ -11,69 +11,69 @@ const SERVICOS = [
     tag: 'Corporal',
     icon: '<img src="assets/images/drenagem.png" alt="Drenagem Linfática" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '💧',
-    nome: 'Drenagem Linf&#225;tica',
+    nome: 'Drenagem Linfática',
     preco: 'R$ 80,00',
-    resumo: 'Elimine o incha&#231;o, ative a circula&#231;&#227;o e sinta leveza imediata.',
-    descricao: 'Massagem manual com movimentos suaves e r&#237;tmicos que estimulam o sistema linf&#225;tico, acelerando a elimina&#231;&#227;o de toxinas e l&#237;quidos retidos. Alivia incha&#231;o, sensa&#231;&#227;o de peso nas pernas e melhora a circula&#231;&#227;o geral.',
+    resumo: 'Elimine o inchaço, ative a circulação e sinta leveza imediata.',
+    descricao: 'Massagem manual com movimentos suaves e rítmicos que estimulam o sistema linfático, acelerando a eliminação de toxinas e líquidos retidos. Alivia inchaço, sensação de peso nas pernas e melhora a circulação geral.',
     beneficios: [
-      'Redu&#231;&#227;o de incha&#231;o e reten&#231;&#227;o h&#237;drica',
-      'Melhora da circula&#231;&#227;o sangu&#237;nea e linf&#225;tica',
-      'Al&#237;vio de pernas cansadas e pesadas',
-      'Excelente para p&#243;s-operat&#243;rio',
-      'Sensa&#231;&#227;o imediata de leveza'
+      'Redução de inchaço e retenção hídrica',
+      'Melhora da circulação sanguínea e linfática',
+      'Alívio de pernas cansadas e pesadas',
+      'Excelente para pós-operatório',
+      'Sensação imediata de leveza'
     ],
     duracao: '60 minutos'
   },
   {
     id: 2,
     tag: 'Relaxante',
-    icon: '&#127807;',
-    iconModal: '&#127807;',
+    icon: '🌿',
+    iconModal: '🌿',
     nome: 'Massagem Relaxante',
     preco: 'R$ 90,00',
-    resumo: 'Alivie tens&#245;es, reduza o estresse e recarregue as energias.',
-    descricao: 'Massagem corporal com manobras suaves e envolventes que liberam as tens&#245;es musculares acumuladas, reduzem o estresse e proporcionam profundo relaxamento. Uma pausa merecida para cuidar de corpo e mente.',
+    resumo: 'Alivie tensões, reduza o estresse e recarregue as energias.',
+    descricao: 'Massagem corporal com manobras suaves e envolventes que liberam as tensões musculares acumuladas, reduzem o estresse e proporcionam profundo relaxamento. Uma pausa merecida para cuidar de corpo e mente.',
     beneficios: [
-      'Al&#237;vio de tens&#227;o muscular e estresse',
+      'Alívio de tensão muscular e estresse',
       'Melhora da qualidade do sono',
-      'Libera&#231;&#227;o de endorfinas naturais',
+      'Liberação de endorfinas naturais',
       'Relaxamento profundo corpo e mente',
-      'Sensa&#231;&#227;o de bem-estar duradoura'
+      'Sensação de bem-estar duradoura'
     ],
     duracao: '50 a 60 minutos'
   },
   {
     id: 3,
     tag: 'Facial',
-    icon: '&#10024;',
-    iconModal: '&#10024;',
+    icon: '✨',
+    iconModal: '✨',
     nome: 'Limpeza de Pele',
     preco: 'R$ 100,00',
     resumo: 'Pele limpa, oxigenada e radiante com protocolo completo.',
-    descricao: 'Tratamento facial completo que remove impurezas, cravos e c&#233;lulas mortas acumuladas, desobstruindo os poros e promovendo a renova&#231;&#227;o celular. Ideal para todos os tipos de pele, especialmente oleosa e mista.',
+    descricao: 'Tratamento facial completo que remove impurezas, cravos e células mortas acumuladas, desobstruindo os poros e promovendo a renovação celular. Ideal para todos os tipos de pele, especialmente oleosa e mista.',
     beneficios: [
-      'Desobstru&#231;&#227;o profunda dos poros',
-      'Remo&#231;&#227;o de cravos e impurezas',
+      'Desobstrução profunda dos poros',
+      'Remoção de cravos e impurezas',
       'Pele mais luminosa e uniforme',
-      'Prepara&#231;&#227;o para outros tratamentos faciais',
-      'Hidrata&#231;&#227;o intensiva ao final'
+      'Preparação para outros tratamentos faciais',
+      'Hidratação intensiva ao final'
     ],
     duracao: '60 a 90 minutos'
   },
   {
     id: 4,
     tag: 'Corporal',
-    icon: '&#128293;',
-    iconModal: '&#128293;',
+    icon: '🔥',
+    iconModal: '🔥',
     nome: 'Massagem Modeladora',
     preco: 'R$ 95,00',
     resumo: 'Reduza medidas, combata a celulite e defina o contorno.',
-    descricao: 'T&#233;cnica de massagem vigorosa com movimentos espec&#237;ficos para quebrar os n&#243;dulos de gordura localizada, melhorar o aspecto da celulite e definir o contorno corporal. Resultados vis&#237;veis com sess&#245;es regulares.',
+    descricao: 'Técnica de massagem vigorosa com movimentos específicos para quebrar os nódulos de gordura localizada, melhorar o aspecto da celulite e definir o contorno corporal. Resultados visíveis com sessões regulares.',
     beneficios: [
-      'Redu&#231;&#227;o de gordura localizada',
+      'Redução de gordura localizada',
       'Melhora do aspecto da celulite',
-      'Defini&#231;&#227;o do contorno corporal',
-      'Estimula a circula&#231;&#227;o e o metabolismo',
+      'Definição do contorno corporal',
+      'Estimula a circulação e o metabolismo',
       'Pele mais firme e tonificada'
     ],
     duracao: '50 a 60 minutos'
@@ -81,53 +81,53 @@ const SERVICOS = [
   {
     id: 5,
     tag: 'Relaxante',
-    icon: '&#127800;',
-    iconModal: '&#127800;',
-    nome: 'Escalda P&#233;s',
+    icon: '🌸',
+    iconModal: '🌸',
+    nome: 'Escalda Pés',
     preco: 'R$ 55,00',
-    resumo: 'Hidrata&#231;&#227;o, relaxamento e cuidado completo para os seus p&#233;s.',
-    descricao: 'Ritual relaxante que combina imers&#227;o dos p&#233;s em &#225;gua morna aromatizada com &#243;leos essenciais, esfolia&#231;&#227;o, hidrata&#231;&#227;o intensa e massagem. Alivia o cansa&#231;o, amacia os calos e proporciona uma sensa&#231;&#227;o deliciosa de leveza.',
+    resumo: 'Hidratação, relaxamento e cuidado completo para os seus pés.',
+    descricao: 'Ritual relaxante que combina imersão dos pés em água morna aromatizada com óleos essenciais, esfoliação, hidratação intensa e massagem. Alivia o cansaço, amacia os calos e proporciona uma sensação deliciosa de leveza.',
     beneficios: [
-      'Al&#237;vio do cansa&#231;o e incha&#231;o dos p&#233;s',
-      'Hidrata&#231;&#227;o profunda e suaviza&#231;&#227;o da pele',
-      'Elimina&#231;&#227;o de calos e pele ressecada',
+      'Alívio do cansaço e inchaço dos pés',
+      'Hidratação profunda e suavização da pele',
+      'Eliminação de calos e pele ressecada',
       'Relaxamento e bem-estar total',
-      '&#211;timo para combinar com outros tratamentos'
+      'Ótimo para combinar com outros tratamentos'
     ],
     duracao: '40 a 50 minutos'
   },
   {
     id: 6,
     tag: 'Corporal',
-    icon: '&#127802;',
-    iconModal: '&#127802;',
-    nome: 'Depila&#231;&#227;o com Cera',
+    icon: '🌺',
+    iconModal: '🌺',
+    nome: 'Depilação com Cera',
     preco: 'A partir de R$ 25,00',
-    resumo: 'Pele lisa por mais tempo com depila&#231;&#227;o suave e eficiente.',
-    descricao: 'Depila&#231;&#227;o com cera quente ou morna que remove os pelos pela raiz, garantindo pele lisa por muito mais tempo. Realizada com t&#233;cnica precisa e produtos de qualidade para minimizar o desconforto e irrita&#231;&#245;es.',
+    resumo: 'Pele lisa por mais tempo com depilação suave e eficiente.',
+    descricao: 'Depilação com cera quente ou morna que remove os pelos pela raiz, garantindo pele lisa por muito mais tempo. Realizada com técnica precisa e produtos de qualidade para minimizar o desconforto e irritações.',
     beneficios: [
-      'Remo&#231;&#227;o eficiente dos pelos pela raiz',
+      'Remoção eficiente dos pelos pela raiz',
       'Pele lisa por 3 a 5 semanas',
       'Pelos nascem mais finos com o tempo',
-      'Produtos de qualidade e hipoalerg&#234;nicos',
-      'T&#233;cnica precisa para minimizar desconforto'
+      'Produtos de qualidade e hipoalergênicos',
+      'Técnica precisa para minimizar desconforto'
     ],
     duracao: 'A partir de 20 minutos'
   },
   {
     id: 7,
     tag: 'Facial',
-    icon: '&#127775;',
-    iconModal: '&#127775;',
+    icon: '🌟',
+    iconModal: '🌟',
     nome: 'Detox Facial',
     preco: 'R$ 110,00',
     resumo: 'Desintoxique a pele e recupere o brilho natural do seu rosto.',
-    descricao: 'Tratamento facial desintoxicante que utiliza ativos purificantes e antioxidantes para eliminar as impurezas acumuladas pela polui&#231;&#227;o e estresse do dia a dia. Revitaliza, ilumina e devolve a vitalidade &#224; pele cansada.',
+    descricao: 'Tratamento facial desintoxicante que utiliza ativos purificantes e antioxidantes para eliminar as impurezas acumuladas pela poluição e estresse do dia a dia. Revitaliza, ilumina e devolve a vitalidade à pele cansada.',
     beneficios: [
-      'Desintoxica&#231;&#227;o e purifica&#231;&#227;o profunda',
+      'Desintoxicação e purificação profunda',
       'Pele mais iluminada e revitalizada',
-      'Prote&#231;&#227;o antioxidante contra a polui&#231;&#227;o',
-      'Redu&#231;&#227;o do aspecto de pele cansada',
+      'Proteção antioxidante contra a poluição',
+      'Redução do aspecto de pele cansada',
       'Efeito de lifting leve e imediato'
     ],
     duracao: '50 a 60 minutos'
@@ -190,7 +190,7 @@ function abrirModal(id) {
   document.getElementById('modalTag').innerHTML    = s.tag;
   document.getElementById('modalTitulo').innerHTML = s.nome;
   document.getElementById('modalDesc').innerHTML   = s.descricao;
-  document.getElementById('modalDuracao').innerHTML = '&#9200; ' + s.duracao;
+  document.getElementById('modalDuracao').innerHTML = '⏰ ' + s.duracao;
   document.getElementById('modalPreco').innerHTML  = s.preco;
 
   document.getElementById('modalBeneficios').innerHTML =
@@ -200,12 +200,12 @@ function abrirModal(id) {
   const jaAdicionado = carrinho.some(x => x.id === id);
 
   if (jaAdicionado) {
-    btn.innerHTML = '&#10003; J&#225; est&#225; no seu agendamento';
+    btn.innerHTML = '✓ Já está no seu agendamento';
     btn.style.background = '#4caf50';
     btn.style.borderColor = '#4caf50';
     btn.onclick = () => fecharModal();
   } else {
-    btn.innerHTML = '&#10022; Adicionar ao Agendamento';
+    btn.innerHTML = '✦ Adicionar ao Agendamento';
     btn.style.background = '';
     btn.style.borderColor = '';
     btn.onclick = () => {
@@ -254,7 +254,7 @@ function atualizarCarrinhoUI() {
   const footer = document.getElementById('carrinhoFooter');
 
   if (carrinho.length === 0) {
-    lista.innerHTML = '<p class="carrinho-vazio">Nenhum servi&#231;o selecionado ainda.</p>';
+    lista.innerHTML = '<p class="carrinho-vazio">Nenhum serviço selecionado ainda.</p>';
     footer.style.display = 'none';
   } else {
     lista.innerHTML = carrinho.map(s => `
@@ -280,10 +280,10 @@ function atualizarCarrinhoUI() {
     const link = document.getElementById('link-' + id);
     if (carrinho.some(x => x.id === id)) {
       card.classList.add('adicionado');
-      if (link) { link.innerHTML = '&#10003; Adicionado'; link.style.color = '#4caf50'; }
+      if (link) { link.innerHTML = '✓ Adicionado'; link.style.color = '#4caf50'; }
     } else {
       card.classList.remove('adicionado');
-      if (link) { link.innerHTML = 'Ver detalhes &#8594;'; link.style.color = ''; }
+      if (link) { link.innerHTML = 'Ver detalhes →'; link.style.color = ''; }
     }
   });
 }
@@ -315,18 +315,18 @@ function agendarWhatsApp() {
   if (carrinho.length === 0) return;
 
   const itens = carrinho
-    .map(s => encodeURIComponent('   \u2728 ' + s.nome + ' \u2014 ' + s.preco))
+    .map(s => encodeURIComponent('   ✨ ' + s.nome + ' — ' + s.preco))
     .join('%0A');
 
   const msg =
-    encodeURIComponent('\uD83C\uDF38 SARA LIMA EST\u00C9TICA \uD83C\uDF38') + '%0A' +
+    encodeURIComponent('🌸 SARA LIMA ESTÉTICA 🌸') + '%0A' +
     encodeURIComponent('_______________________________') + '%0A%0A' +
-    encodeURIComponent('Ol\u00E1 Sara, tudo bem? \uD83D\uDC95') + '%0A%0A' +
+    encodeURIComponent('Olá Sara, tudo bem? 💕') + '%0A%0A' +
     encodeURIComponent('Gostaria de agendar os seguintes tratamentos:') + '%0A%0A' +
     itens + '%0A%0A' +
-    encodeURIComponent('\uD83D\uDCCD Estou em Caxambu \u2014 MG') + '%0A' +
-    encodeURIComponent('\uD83D\uDDD3\uFE0F Poderia me informar os hor\u00E1rios dispon\u00EDveis?') + '%0A%0A' +
-    encodeURIComponent('Aguardo seu retorno! \uD83D\uDE4F\u2728');
+    encodeURIComponent('📍 Estou em Caxambu — MG') + '%0A' +
+    encodeURIComponent('🗓️ Poderia me informar os horários disponíveis?') + '%0A%0A' +
+    encodeURIComponent('Aguardo seu retorno! 🙏✨');
 
   window.open('https://wa.me/' + WHATSAPP_NUM + '?text=' + msg, '_blank');
 }
