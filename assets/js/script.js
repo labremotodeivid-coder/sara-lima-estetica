@@ -27,7 +27,7 @@ const SERVICOS = [
   {
     id: 2,
     tag: 'Relaxante',
-    icon: '🌿',
+    icon: '<img src="assets/images/relaxante.png" alt="Massagem Relaxante" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '🌿',
     nome: 'Massagem Relaxante',
     preco: 'R$ 90,00',
@@ -45,7 +45,7 @@ const SERVICOS = [
   {
     id: 3,
     tag: 'Facial',
-    icon: '✨',
+    icon: '<img src="assets/images/limpeza.jpg" alt="Limpeza de Pele" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     iconModal: '✨',
     nome: 'Limpeza de Pele',
     preco: 'R$ 100,00',
