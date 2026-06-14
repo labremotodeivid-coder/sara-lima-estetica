@@ -9,7 +9,7 @@ const SERVICOS = [
   {
     id: 1,
     tag: 'Corporal',
-    icon: '<img src="assets/images/drenagem.png" alt="Drenagem Linfática" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
+    icon: '<img src="assets\images\drenagem.png" alt="Drenagem Linfática" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />',
     nome: 'Drenagem Linf&#225;tica',
     preco: 'R$ 80,00',
     resumo: 'Elimine o incha&#231;o, ative a circula&#231;&#227;o e sinta leveza imediata.',
