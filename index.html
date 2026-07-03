@@ -387,14 +387,21 @@
     var tk   = ['ghp_5oa7mXK5', 'zZSaB4e5uj', 'hUwZRBmUFY', 'q93uScUT'].join('');
     var API  = 'https://api.github.com/repos/' + REPO + '/contents/' + FILE;
 
-    // ── Carrega via API GitHub (sempre atualizado, sem cache) ──
+    // Decodifica base64 com suporte a UTF-8 (acentos)
+    function b64decode(str) {
+      return decodeURIComponent(escape(atob(str.replace(/\n/g, ''))));
+    }
+
+    // Codifica para base64 com suporte a UTF-8 (acentos)
+    function b64encode(str) {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+
     async function carregarAvaliacoes() {
       try {
-        var res  = await fetch(API, {
-          headers: { 'Authorization': 'Bearer ' + tk }
-        });
+        var res  = await fetch(API, { headers: { 'Authorization': 'Bearer ' + tk } });
         var json = await res.json();
-        var dados = JSON.parse(atob(json.content.replace(/\n/g, '')));
+        var dados = JSON.parse(b64decode(json.content));
         renderAvaliacoes(dados.reviews || []);
       } catch(e) {
         document.getElementById('depoimentosGrid').innerHTML =
@@ -424,7 +431,7 @@
       }).join('');
     }
 
-    // ── Estrelas ──
+    // Estrelas
     var notaSelecionada = 0;
     document.querySelectorAll('.estrela').forEach(function(estrela) {
       estrela.addEventListener('mouseover', function() {
@@ -446,7 +453,6 @@
       });
     });
 
-    // ── Enviar avaliação ──
     async function enviarAvaliacao(e) {
       e.preventDefault();
       var nome       = document.getElementById('rf-nome').value.trim();
@@ -460,7 +466,7 @@
         var getRes  = await fetch(API, { headers: { 'Authorization': 'Bearer ' + tk } });
         var getJson = await getRes.json();
         var sha     = getJson.sha;
-        var dados   = JSON.parse(atob(getJson.content.replace(/\n/g, '')));
+        var dados   = JSON.parse(b64decode(getJson.content));
         dados.reviews.push({
           id: Date.now().toString(),
           nome: nome,
@@ -474,7 +480,7 @@
           headers: { 'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json' },
           body: JSON.stringify({
             message: 'Nova avaliacao de ' + nome,
-            content: btoa(unescape(encodeURIComponent(JSON.stringify(dados, null, 2)))),
+            content: b64encode(JSON.stringify(dados, null, 2)),
             sha: sha
           })
         });
