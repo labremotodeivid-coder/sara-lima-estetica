@@ -40,6 +40,204 @@
     ]
   }
   </script>
+
+  <style>
+    /* ── Seção Depoimentos ── */
+    .avaliacoes-section {
+      padding: 7rem 0;
+      background: var(--escuro);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avaliacoes-section::before {
+      content: '"';
+      position: absolute;
+      top: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-size: 20rem;
+      color: rgba(200,149,106,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .avaliacoes-section .section-eyebrow { color: var(--rose-gold); text-align: center; }
+    .avaliacoes-section .section-title   { color: var(--champagne); text-align: center; margin-bottom: 1rem; }
+    .avaliacoes-section .section-sub     { color: rgba(245,237,227,0.5); text-align: center; font-size: 0.85rem; margin-bottom: 3.5rem; }
+
+    /* Grid de depoimentos */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .depo-card {
+      background: rgba(245,237,227,0.06);
+      border: 1px solid rgba(200,149,106,0.18);
+      padding: 2rem 1.8rem;
+      border-radius: 2px;
+      transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .depo-card:hover {
+      background: rgba(245,237,227,0.1);
+      border-color: rgba(200,149,106,0.4);
+      transform: translateY(-4px);
+    }
+
+    .depo-stars { color: var(--rose-gold); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 1rem; }
+
+    .depo-texto {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--champagne);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+
+    .depo-autor { display: flex; align-items: center; gap: 0.8rem; }
+
+    .depo-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-gold), var(--bronze));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--branco);
+      flex-shrink: 0;
+    }
+
+    .depo-nome    { font-size: 0.8rem; font-weight: 500; color: var(--rose-gold); letter-spacing: 0.08em; }
+    .depo-servico { font-size: 0.68rem; color: rgba(245,237,227,0.45); letter-spacing: 0.1em; margin-top: 2px; }
+
+    /* Formulário de avaliação */
+    .avaliacao-form-wrap {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(245,237,227,0.06);
+      border: 1px solid rgba(200,149,106,0.2);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+    }
+
+    .avaliacao-form-titulo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--champagne);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .avaliacao-form-sub {
+      font-size: 0.78rem;
+      color: rgba(245,237,227,0.45);
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(245,237,227,0.08);
+      border: 1px solid rgba(200,149,106,0.25);
+      border-radius: 2px;
+      padding: 0.8rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--champagne);
+      transition: border-color 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(245,237,227,0.3);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--rose-gold);
+    }
+
+    .form-group select option {
+      background: var(--escuro);
+      color: var(--champagne);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .estrelas-wrap {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .estrela {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: rgba(200,149,106,0.3);
+      transition: color 0.2s ease;
+      user-select: none;
+    }
+
+    .estrela.ativa { color: var(--rose-gold); }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form-sucesso {
+      display: none;
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--champagne);
+    }
+
+    .form-sucesso .sucesso-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .form-sucesso p { font-size: 0.9rem; opacity: 0.7; }
+
+    @media (max-width: 900px) {
+      .depoimentos-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .avaliacao-form-wrap { padding: 1.8rem 1.2rem; }
+    }
+  </style>
 </head>
 <body>
 
@@ -150,37 +348,81 @@
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
-  <section class="depoimentos" id="depoimentos">
+  <!-- DEPOIMENTOS + FORMULÁRIO -->
+  <section class="avaliacoes-section" id="depoimentos">
     <div class="container">
       <span class="section-eyebrow reveal">Resultados</span>
       <h2 class="section-title reveal">O que dizem <em>nossas clientes</em></h2>
-      <div class="depoimentos-grid">
+      <p class="section-sub reveal">Avaliações reais de quem já viveu a experiência</p>
+
+      <!-- Cards de depoimentos — você pode adicionar mais aqui quando receber avaliações -->
+      <div class="depoimentos-grid" id="depoimentosGrid">
+        <!-- Os depoimentos aparecerão aqui conforme você os aprovar e adicionar -->
         <div class="depo-card reveal">
           <div class="depo-stars">★★★★★</div>
-          <p class="depo-texto">"Minha pele nunca esteve tão bonita. A Sara tem um cuidado e uma atenção que faz toda a diferença. Me sinto renovada depois de cada sessão!"</p>
+          <p class="depo-texto">"Seja a primeira cliente a deixar sua avaliação! Adoraríamos saber sua experiência."</p>
           <div class="depo-autor">
-            <div class="depo-avatar">A</div>
-            <div><div class="depo-nome">Ana Carolina</div><div class="depo-servico">Limpeza de Pele</div></div>
-          </div>
-        </div>
-        <div class="depo-card reveal">
-          <div class="depo-stars">★★★★★</div>
-          <p class="depo-texto">"A drenagem linfática da Sara é incrível! Minhas pernas ficaram muito mais leves e o inchaço desapareceu. Recomendo demais!"</p>
-          <div class="depo-autor">
-            <div class="depo-avatar">M</div>
-            <div><div class="depo-nome">Marina Souza</div><div class="depo-servico">Drenagem Linfática</div></div>
-          </div>
-        </div>
-        <div class="depo-card reveal">
-          <div class="depo-stars">★★★★★</div>
-          <p class="depo-texto">"Ambiente maravilhoso, atendimento impecável e resultados que superam as expectativas. Me sinto em casa toda vez que vou!"</p>
-          <div class="depo-autor">
-            <div class="depo-avatar">J</div>
-            <div><div class="depo-nome">Juliana Lima</div><div class="depo-servico">Massagem Relaxante</div></div>
+            <div class="depo-avatar">✦</div>
+            <div>
+              <div class="depo-nome">Sara Lima Estética</div>
+              <div class="depo-servico">Caxambu — MG</div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Formulário de avaliação -->
+      <div class="avaliacao-form-wrap reveal">
+        <h3 class="avaliacao-form-titulo">Deixe sua <em style="font-style:italic;color:var(--rose-gold)">avaliação</em></h3>
+        <p class="avaliacao-form-sub">Sua opinião é muito importante para nós ✨</p>
+
+        <form id="formAvaliacao" action="https://formspree.io/f/mykqlebj" method="POST">
+          <div class="form-group">
+            <label for="nome">Seu nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Como você se chama?" required />
+          </div>
+
+          <div class="form-group">
+            <label for="servico">Tratamento realizado</label>
+            <select id="servico" name="servico" required>
+              <option value="" disabled selected>Selecione o tratamento</option>
+              <option value="Drenagem Linfática">Drenagem Linfática</option>
+              <option value="Massagem Relaxante">Massagem Relaxante</option>
+              <option value="Limpeza de Pele">Limpeza de Pele</option>
+              <option value="Massagem Modeladora">Massagem Modeladora</option>
+              <option value="Escalda Pés">Escalda Pés</option>
+              <option value="Depilação com Cera">Depilação com Cera</option>
+              <option value="Detox Facial">Detox Facial</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Sua nota</label>
+            <div class="estrelas-wrap" id="estrelasWrap">
+              <span class="estrela" data-valor="1">★</span>
+              <span class="estrela" data-valor="2">★</span>
+              <span class="estrela" data-valor="3">★</span>
+              <span class="estrela" data-valor="4">★</span>
+              <span class="estrela" data-valor="5">★</span>
+            </div>
+            <input type="hidden" name="nota" id="notaInput" value="" required />
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Sua avaliação</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte como foi sua experiência..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary form-submit">✦ Enviar Avaliação</button>
+        </form>
+
+        <div class="form-sucesso" id="formSucesso">
+          <div class="sucesso-icon">🌸</div>
+          <h3 style="font-family:var(--font-display);color:var(--champagne);font-size:1.4rem;margin-bottom:0.5rem;">Obrigada pelo seu carinho!</h3>
+          <p>Sua avaliação foi recebida e em breve aparecerá aqui.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -274,5 +516,62 @@
   <a class="whatsapp-float" href="https://wa.me/5535991103879?text=Olá%20Sara!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">💬</a>
 
   <script src="assets/js/script.js" defer></script>
+
+  <script>
+    // ── Estrelas ──────────────────────────────────────────
+    const estrelas = document.querySelectorAll('.estrela');
+    const notaInput = document.getElementById('notaInput');
+    let notaSelecionada = 0;
+
+    estrelas.forEach(estrela => {
+      estrela.addEventListener('mouseover', () => {
+        const val = parseInt(estrela.dataset.valor);
+        estrelas.forEach(e => e.classList.toggle('ativa', parseInt(e.dataset.valor) <= val));
+      });
+
+      estrela.addEventListener('mouseout', () => {
+        estrelas.forEach(e => e.classList.toggle('ativa', parseInt(e.dataset.valor) <= notaSelecionada));
+      });
+
+      estrela.addEventListener('click', () => {
+        notaSelecionada = parseInt(estrela.dataset.valor);
+        notaInput.value = notaSelecionada + ' estrelas';
+        estrelas.forEach(e => e.classList.toggle('ativa', parseInt(e.dataset.valor) <= notaSelecionada));
+      });
+    });
+
+    // ── Envio do formulário ───────────────────────────────
+    const form = document.getElementById('formAvaliacao');
+    const sucesso = document.getElementById('formSucesso');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!notaInput.value) {
+        alert('Por favor, selecione uma nota com as estrelas!');
+        return;
+      }
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          sucesso.style.display = 'block';
+        } else {
+          alert('Erro ao enviar. Tente novamente!');
+        }
+      } catch {
+        alert('Erro de conexão. Tente novamente!');
+      }
+    });
+  </script>
+
 </body>
 </html>
