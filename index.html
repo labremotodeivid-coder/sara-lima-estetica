@@ -41,7 +41,6 @@
   </script>
 
   <style>
-    /* ── Avaliações ── */
     .avaliacoes-section {
       padding: 7rem 0;
       background: var(--escuro);
@@ -99,7 +98,6 @@
     .depo-servico { font-size: 0.68rem; color: rgba(245,237,227,0.45); letter-spacing: 0.1em; margin-top: 2px; }
     .dep-loading  { text-align: center; color: rgba(245,237,227,0.4); font-size: 0.85rem; padding: 2rem; grid-column: 1/-1; }
 
-    /* Formulário */
     .avaliacao-form-wrap {
       max-width: 600px; margin: 0 auto;
       background: rgba(245,237,227,0.06);
@@ -241,7 +239,6 @@
     </div>
   </section>
 
-  <!-- AVALIAÇÕES -->
   <section class="avaliacoes-section" id="depoimentos">
     <div class="container">
       <span class="section-eyebrow reveal">Resultados</span>
@@ -385,33 +382,28 @@
   <script src="assets/js/script.js" defer></script>
 
   <script>
-    // ── AVALIAÇÕES ────────────────────────────────────────
-    const REPO  = 'labremotodeivid-coder/Sara_lima_avaliacoes';
-    const FILE  = 'reviews.json';
+    var REPO = 'labremotodeivid-coder/Sara_lima_avaliacoes';
+    var FILE = 'reviews.json';
+    var tk   = ['ghp_5oa7mXK5', 'zZSaB4e5uj', 'hUwZRBmUFY', 'q93uScUT'].join('');
+    var API  = 'https://api.github.com/repos/' + REPO + '/contents/' + FILE;
 
-    // Carrega via jsDelivr — CDN pública sem CORS
+    // ── Carrega via API GitHub (sempre atualizado, sem cache) ──
     async function carregarAvaliacoes() {
       try {
-        const url  = 'https://cdn.jsdelivr.net/gh/' + REPO + '@main/' + FILE + '?t=' + Date.now();
-        const res  = await fetch(url);
-        const data = await res.json();
-        renderAvaliacoes(data.reviews || []);
+        var res  = await fetch(API, {
+          headers: { 'Authorization': 'Bearer ' + tk }
+        });
+        var json = await res.json();
+        var dados = JSON.parse(atob(json.content.replace(/\n/g, '')));
+        renderAvaliacoes(dados.reviews || []);
       } catch(e) {
-        // fallback: tenta pelo raw direto
-        try {
-          const url2 = 'https://raw.githubusercontent.com/' + REPO + '/main/' + FILE + '?t=' + Date.now();
-          const res2 = await fetch(url2);
-          const data2 = await res2.json();
-          renderAvaliacoes(data2.reviews || []);
-        } catch(e2) {
-          document.getElementById('depoimentosGrid').innerHTML =
-            '<div class="dep-loading">Seja a primeira a deixar uma avaliação! 🌸</div>';
-        }
+        document.getElementById('depoimentosGrid').innerHTML =
+          '<div class="dep-loading">Seja a primeira a deixar uma avaliação! 🌸</div>';
       }
     }
 
     function renderAvaliacoes(reviews) {
-      const grid = document.getElementById('depoimentosGrid');
+      var grid = document.getElementById('depoimentosGrid');
       if (!reviews || !reviews.length) {
         grid.innerHTML = '<div class="dep-loading">Seja a primeira a deixar uma avaliação! 🌸</div>';
         return;
@@ -432,7 +424,7 @@
       }).join('');
     }
 
-    // ── ESTRELAS ──────────────────────────────────────────
+    // ── Estrelas ──
     var notaSelecionada = 0;
     document.querySelectorAll('.estrela').forEach(function(estrela) {
       estrela.addEventListener('mouseover', function() {
@@ -454,9 +446,7 @@
       });
     });
 
-    // ── ENVIAR ────────────────────────────────────────────
-    var tk = ['ghp_5oa7mXK5', 'zZSaB4e5uj', 'hUwZRBmUFY', 'q93uScUT'].join('');
-
+    // ── Enviar avaliação ──
     async function enviarAvaliacao(e) {
       e.preventDefault();
       var nome       = document.getElementById('rf-nome').value.trim();
@@ -467,8 +457,7 @@
       btn.textContent = '⏳ Enviando...';
       btn.disabled = true;
       try {
-        var apiUrl = 'https://api.github.com/repos/' + REPO + '/contents/' + FILE;
-        var getRes  = await fetch(apiUrl, { headers: { 'Authorization': 'Bearer ' + tk } });
+        var getRes  = await fetch(API, { headers: { 'Authorization': 'Bearer ' + tk } });
         var getJson = await getRes.json();
         var sha     = getJson.sha;
         var dados   = JSON.parse(atob(getJson.content.replace(/\n/g, '')));
@@ -480,7 +469,7 @@
           comentario: comentario,
           data: new Date().toISOString().split('T')[0]
         });
-        var putRes = await fetch(apiUrl, {
+        var putRes = await fetch(API, {
           method: 'PUT',
           headers: { 'Authorization': 'Bearer ' + tk, 'Content-Type': 'application/json' },
           body: JSON.stringify({
