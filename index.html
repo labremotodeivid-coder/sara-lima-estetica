@@ -22,6 +22,7 @@
     "email": "contato@saralimaestetica.com.br",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Rua Lázaro Ramos Pereira, 31 — Bairro São Januário",
       "addressLocality": "Caxambu",
       "addressRegion": "MG",
       "addressCountry": "BR"
@@ -58,7 +59,7 @@
       line-height: 1;
       pointer-events: none;
     }
-    .avaliacoes-section .section-eyebrow { color: var(--rose-gold); text-align: center; }
+    .avaliacoes-section .section-eyebrow { color: var(--rose-gold); display: table; margin: 0 auto 1.2rem; }
     .avaliacoes-section .section-title   { color: var(--champagne); text-align: center; margin-bottom: 0.5rem; }
     .avaliacoes-section .section-sub     { color: rgba(245,237,227,0.45); text-align: center; font-size: 0.85rem; margin-bottom: 3rem; }
 
@@ -73,8 +74,17 @@
       background: rgba(245,237,227,0.06);
       border: 1px solid rgba(200,149,106,0.18);
       padding: 2rem 1.8rem;
-      border-radius: 2px;
+      position: relative;
       transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .depo-card::before {
+      content: '\201D';
+      position: absolute;
+      top: 0.6rem; right: 1.2rem;
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: rgba(200,149,106,0.25);
+      line-height: 1;
     }
     .depo-card:hover {
       background: rgba(245,237,227,0.1);
@@ -102,7 +112,7 @@
       max-width: 600px; margin: 0 auto;
       background: rgba(245,237,227,0.06);
       border: 1px solid rgba(200,149,106,0.2);
-      border-radius: 4px; padding: 2.5rem 2rem;
+      padding: 2.5rem 2rem;
     }
     .avaliacao-form-titulo {
       font-family: var(--font-display); font-size: 1.6rem; font-weight: 300;
@@ -124,7 +134,7 @@
       width: 100%;
       background: rgba(245,237,227,0.08);
       border: 1px solid rgba(200,149,106,0.25);
-      border-radius: 2px; padding: 0.8rem 1rem;
+      padding: 0.8rem 1rem;
       font-family: var(--font-body); font-size: 0.85rem;
       color: var(--champagne); transition: border-color 0.3s; outline: none;
     }
@@ -152,27 +162,63 @@
 </head>
 <body>
 
-  <header class="navbar" id="navbar" role="banner">
-    <div class="container">
-      <a class="nav-logo" href="#inicio" aria-label="Sara Lima Estética — início">
-        <img src="assets/images/logo.png" alt="Sara Lima Estética" />
-      </a>
-      <nav class="nav-links" role="navigation" aria-label="Menu principal">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#depoimentos">Resultados</a>
-        <a href="#contato" class="nav-cta">Agendar</a>
-      </nav>
-      <div style="display:flex;align-items:center;gap:1rem;">
-        <button class="carrinho-btn" id="carrinhoBtn" aria-label="Ver carrinho">
-          🛒 <span class="carrinho-count" id="carrinhoCount">0</span>
-        </button>
-        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+  <div class="site-header" id="siteHeader">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-contato">
+          <a href="https://wa.me/5535991103879" target="_blank" rel="noopener">☏ (35) 9 9110-3879</a>
+          <span class="topbar-sep">|</span>
+          <a href="mailto:contato@saralimaestetica.com.br">✉ contato@saralimaestetica.com.br</a>
+        </div>
+        <div class="topbar-socials">
+          <a href="https://instagram.com/saraa___lima" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="icon-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="igGradTop" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#FFDD55"/>
+                  <stop offset="50%" stop-color="#E1306C"/>
+                  <stop offset="100%" stop-color="#5851DB"/>
+                </linearGradient>
+              </defs>
+              <rect x="1" y="1" width="30" height="30" rx="9" fill="url(#igGradTop)"/>
+              <rect x="9" y="9" width="14" height="14" rx="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+              <circle cx="16" cy="16" r="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+              <circle cx="21.5" cy="10.5" r="1.3" fill="#FFFFFF"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5535991103879" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg class="icon-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="16" cy="16" r="16" fill="#25D366"/>
+              <path fill="#FFFFFF" d="M23.47 8.52A10.68 10.68 0 0016 5.33 10.7 10.7 0 005.33 16a10.66 10.66 0 001.43 5.36L5.33 26.67l5.46-1.43A10.7 10.7 0 0016 26.67 10.7 10.7 0 0026.67 16a10.63 10.63 0 00-3.2-7.48zm-7.47 16.4a8.86 8.86 0 01-4.52-1.24l-.32-.19-3.24.85.86-3.16-.21-.32A8.88 8.88 0 1124.87 16a8.87 8.87 0 01-8.87 8.92zm4.87-6.65c-.27-.13-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.13s-.69.87-.85 1.05-.31.2-.58.07a7.28 7.28 0 01-2.14-1.32 8.05 8.05 0 01-1.48-1.85c-.16-.27 0-.41.12-.55s.27-.31.4-.47a1.86 1.86 0 00.27-.45.5.5 0 000-.47c-.07-.13-.6-1.45-.82-1.98s-.44-.45-.6-.46h-.51a1 1 0 00-.71.33 3 3 0 00-.93 2.23 5.2 5.2 0 001.09 2.76 11.9 11.9 0 004.56 4.03c.64.27 1.13.44 1.52.56a3.65 3.65 0 001.68.11 2.75 2.75 0 001.81-1.27 2.24 2.24 0 00.16-1.27c-.06-.11-.24-.18-.51-.31z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-  </header>
+
+    <header class="navbar" id="navbar" role="banner">
+      <div class="container">
+        <a class="nav-logo" href="#inicio" aria-label="Sara Lima Estética — início">
+          <img src="assets/images/logo.png" alt="Sara Lima Estética" />
+        </a>
+        <nav class="nav-links" role="navigation" aria-label="Menu principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#depoimentos">Resultados</a>
+          <a href="#localizacao">Localização</a>
+          <a href="#contato" class="nav-cta">Agendar</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <button class="carrinho-btn" id="carrinhoBtn" aria-label="Ver carrinho">
+            🛒 <span class="carrinho-count" id="carrinhoCount">0</span>
+          </button>
+          <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+  </div>
 
   <section class="hero" id="inicio" aria-label="Início">
     <div class="hero-bg" role="img" aria-label="Fundo elegante Sara Lima Estética"></div>
@@ -192,11 +238,13 @@
   <section class="sobre" id="sobre">
     <div class="container">
       <div class="sobre-grid">
+        <div class="sobre-imagem reveal">
+          <img src="assets/images/eu.jpeg" alt="Sara Lima, esteticista" loading="lazy" />
+        </div>
         <div class="sobre-texto reveal">
           <span class="section-eyebrow">Sobre mim</span>
           <h2 class="section-title">Cuidado que <em>transforma</em></h2>
-          <div class="divisor"><span></span></div>
-          <p>Sou Sara Lima, esteticista apaixonada pela arte de realçar a beleza natural de cada pessoa. Com formação especializada e anos de experiência, ofereço tratamentos personalizados pensados para o seu tipo de pele e seus objetivos.</p>
+          <p class="sobre-quote">Sou Sara Lima, esteticista apaixonada pela arte de realçar a beleza natural de cada pessoa. Com formação especializada e anos de experiência, ofereço tratamentos personalizados pensados para o seu tipo de pele e seus objetivos.</p>
           <p>Cada sessão é um momento único de autocuidado, em um ambiente acolhedor, discreto e focado no seu bem-estar. Porque beleza real começa quando você se sente bem consigo mesma.</p>
           <div class="sobre-numeros">
             <div class="numero-item">
@@ -217,12 +265,12 @@
             </div>
           </div>
         </div>
-        <div class="sobre-cards">
-          <div class="sobre-card reveal"><span class="card-icon">✦</span><h3>Personalizado</h3><p>Cada tratamento adaptado ao seu tipo de pele e objetivos específicos.</p></div>
-          <div class="sobre-card reveal"><span class="card-icon">◈</span><h3>Produtos Premium</h3><p>Uso exclusivo de marcas reconhecidas por sua eficácia e segurança.</p></div>
-          <div class="sobre-card reveal"><span class="card-icon">❋</span><h3>Ambiente Exclusivo</h3><p>Espaço criado para proporcionar conforto, privacidade e bem-estar total.</p></div>
-          <div class="sobre-card reveal"><span class="card-icon">◇</span><h3>Resultados Reais</h3><p>Protocolos comprovados com acompanhamento contínuo da evolução.</p></div>
-        </div>
+      </div>
+      <div class="sobre-diferenciais">
+        <div class="sobre-card reveal"><span class="card-icon">✦</span><h3>Personalizado</h3><p>Cada tratamento adaptado ao seu tipo de pele e objetivos específicos.</p></div>
+        <div class="sobre-card reveal"><span class="card-icon">◈</span><h3>Produtos Premium</h3><p>Uso exclusivo de marcas reconhecidas por sua eficácia e segurança.</p></div>
+        <div class="sobre-card reveal"><span class="card-icon">❋</span><h3>Ambiente Exclusivo</h3><p>Espaço criado para proporcionar conforto, privacidade e bem-estar total.</p></div>
+        <div class="sobre-card reveal"><span class="card-icon">◇</span><h3>Resultados Reais</h3><p>Protocolos comprovados com acompanhamento contínuo da evolução.</p></div>
       </div>
     </div>
   </section>
@@ -295,16 +343,43 @@
     </div>
   </section>
 
-  <section class="cta-section" id="contato">
+  <section class="localizacao" id="localizacao">
     <div class="container">
-      <div class="cta-inner">
-        <span class="section-eyebrow reveal">Pronta para começar?</span>
-        <h2 class="section-title reveal">Agende seu <em>horário</em></h2>
-        <div class="divisor reveal"><span></span></div>
-        <p class="reveal">Entre em contato e dê o primeiro passo para revelar sua melhor versão. Atendimento personalizado, com horários flexíveis pensados para você.</p>
-        <a href="https://wa.me/5535991103879?text=Olá%20Sara!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-primary reveal" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
-        <div class="cta-contatos reveal">
-          <span class="cta-contato"><span class="cta-contato-icon">📍</span>Caxambu — MG</span>
+      <div class="localizacao-grid">
+        <div class="localizacao-mapa reveal">
+          <iframe
+            src="https://www.google.com/maps?q=Rua+L%C3%A1zaro+Ramos+Pereira%2C+31+-+S%C3%A3o+Janu%C3%A1rio%2C+Caxambu+-+MG&output=embed"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Localização Sara Lima Estética — Rua Lázaro Ramos Pereira, 31, São Januário, Caxambu, MG"></iframe>
+        </div>
+        <div class="localizacao-card reveal">
+          <span class="section-eyebrow">Onde estamos</span>
+          <h2 class="section-title">Como nos <em>encontrar</em></h2>
+          <div class="divisor"><span></span></div>
+          <ul class="localizacao-info">
+            <li><span class="loc-icon">📍</span> Rua Lázaro Ramos Pereira, 31 — Bairro São Januário — Caxambu, MG</li>
+            <li><span class="loc-icon">🕐</span> Seg–Sáb: 8h às 19h</li>
+            <li><span class="loc-icon">💬</span> <a href="https://wa.me/5535991103879" target="_blank" rel="noopener">(35) 9 9110-3879</a></li>
+            <li><span class="loc-icon">📸</span> <a href="https://instagram.com/saraa___lima" target="_blank" rel="noopener">@saralimaestetica</a></li>
+          </ul>
+          <a href="https://wa.me/5535991103879?text=Olá%20Sara!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-primary" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contato">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="section-eyebrow">Pronta para começar?</span>
+        <h2 class="section-title">Agende seu <em>horário</em></h2>
+        <div class="divisor"><span></span></div>
+        <p>Entre em contato e dê o primeiro passo para revelar sua melhor versão. Atendimento personalizado, com horários flexíveis pensados para você.</p>
+        <a href="https://wa.me/5535991103879?text=Olá%20Sara!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn-primary" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        <div class="cta-contatos">
+          <span class="cta-contato"><span class="cta-contato-icon">📍</span>Rua Lázaro Ramos Pereira, 31 — São Januário — Caxambu, MG</span>
           <span class="cta-contato"><span class="cta-contato-icon">🕐</span>Seg–Sáb: 8h às 19h</span>
           <a href="https://instagram.com/saraa___lima" class="cta-contato" target="_blank" rel="noopener"><span class="cta-contato-icon">📸</span>@saralimaestetica</a>
         </div>
@@ -315,29 +390,55 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
-        <div class="footer-brand">
-          <img src="assets/images/logo.png" alt="Sara Lima Estética" />
-          <p>Realce sua beleza. Revele sua melhor versão. Tratamentos estéticos com cuidado e excelência em Caxambu, MG.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navegação</h4>
-          <ul>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#depoimentos">Resultados</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <div class="footer-socials">
-            <a class="social-link" href="https://instagram.com/saralimaestetica" target="_blank" rel="noopener" aria-label="Instagram">✦</a>
-            <a class="social-link" href="https://wa.me/5535991103879" target="_blank" rel="noopener" aria-label="WhatsApp">◈</a>
+        <div class="footer-esquerda">
+          <div class="footer-brand">
+            <img src="assets/images/logo.png" alt="Sara Lima Estética" />
+            <p>Realce sua beleza. Revele sua melhor versão. Tratamentos estéticos com cuidado e excelência em Caxambu, MG.</p>
           </div>
-          <ul style="margin-top:1rem">
-            <li><a href="tel:+5535991103879">(35) 9 9110-3879</a></li>
-            <li><a href="mailto:contato@saralimaestetica.com.br">contato@saralimaestetica.com.br</a></li>
-          </ul>
+          <div class="footer-socials">
+            <a class="social-link" href="https://instagram.com/saralimaestetica" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg class="icon-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="igGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#FFDD55"/>
+                    <stop offset="50%" stop-color="#E1306C"/>
+                    <stop offset="100%" stop-color="#5851DB"/>
+                  </linearGradient>
+                </defs>
+                <rect x="1" y="1" width="30" height="30" rx="9" fill="url(#igGradFooter)"/>
+                <rect x="9" y="9" width="14" height="14" rx="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="16" cy="16" r="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+                <circle cx="21.5" cy="10.5" r="1.3" fill="#FFFFFF"/>
+              </svg>
+            </a>
+            <a class="social-link" href="https://wa.me/5535991103879" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg class="icon-svg" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="16" cy="16" r="16" fill="#25D366"/>
+                <path fill="#FFFFFF" d="M23.47 8.52A10.68 10.68 0 0016 5.33 10.7 10.7 0 005.33 16a10.66 10.66 0 001.43 5.36L5.33 26.67l5.46-1.43A10.7 10.7 0 0016 26.67 10.7 10.7 0 0026.67 16a10.63 10.63 0 00-3.2-7.48zm-7.47 16.4a8.86 8.86 0 01-4.52-1.24l-.32-.19-3.24.85.86-3.16-.21-.32A8.88 8.88 0 1124.87 16a8.87 8.87 0 01-8.87 8.92zm4.87-6.65c-.27-.13-1.58-.78-1.82-.87-.24-.09-.42-.13-.6.13s-.69.87-.85 1.05-.31.2-.58.07a7.28 7.28 0 01-2.14-1.32 8.05 8.05 0 01-1.48-1.85c-.16-.27 0-.41.12-.55s.27-.31.4-.47a1.86 1.86 0 00.27-.45.5.5 0 000-.47c-.07-.13-.6-1.45-.82-1.98s-.44-.45-.6-.46h-.51a1 1 0 00-.71.33 3 3 0 00-.93 2.23 5.2 5.2 0 001.09 2.76 11.9 11.9 0 004.56 4.03c.64.27 1.13.44 1.52.56a3.65 3.65 0 001.68.11 2.75 2.75 0 001.81-1.27 2.24 2.24 0 00.16-1.27c-.06-.11-.24-.18-.51-.31z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-direita">
+          <div class="footer-col">
+            <h4>Navegação</h4>
+            <ul>
+              <li><a href="#sobre">Sobre</a></li>
+              <li><a href="#servicos">Serviços</a></li>
+              <li><a href="#depoimentos">Resultados</a></li>
+              <li><a href="#localizacao">Localização</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contato</h4>
+            <ul>
+              <li class="footer-endereco">Rua Lázaro Ramos Pereira, 31 — São Januário — Caxambu, MG</li>
+              <li><a href="tel:+5535991103879">(35) 9 9110-3879</a></li>
+              <li><a href="mailto:contato@saralimaestetica.com.br">contato@saralimaestetica.com.br</a></li>
+              <li><a href="https://instagram.com/saraa___lima" target="_blank" rel="noopener">@saralimaestetica</a></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -359,6 +460,7 @@
       <div class="modal-duracao" id="modalDuracao"></div>
       <div class="modal-preco" id="modalPreco"></div>
       <button class="btn-primary modal-agendar" id="modalAgendar">✦ Adicionar ao Agendamento</button>
+      <button class="btn-outline modal-calendar" id="modalCalendar">📅 Adicionar ao Google Calendar</button>
     </div>
   </div>
 

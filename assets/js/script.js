@@ -22,7 +22,8 @@ const SERVICOS = [
       'Excelente para pós-operatório',
       'Sensação imediata de leveza'
     ],
-    duracao: '60 minutos'
+    duracao: '60 minutos',
+    duracaoMin: 60
   },
   {
     id: 2,
@@ -40,7 +41,8 @@ const SERVICOS = [
       'Relaxamento profundo corpo e mente',
       'Sensação de bem-estar duradoura'
     ],
-    duracao: '50 a 60 minutos'
+    duracao: '50 a 60 minutos',
+    duracaoMin: 60
   },
   {
     id: 3,
@@ -58,7 +60,8 @@ const SERVICOS = [
       'Preparação para outros tratamentos faciais',
       'Hidratação intensiva ao final'
     ],
-    duracao: '60 a 90 minutos'
+    duracao: '60 a 90 minutos',
+    duracaoMin: 90
   },
   {
     id: 4,
@@ -76,7 +79,8 @@ const SERVICOS = [
       'Estimula a circulação e o metabolismo',
       'Pele mais firme e tonificada'
     ],
-    duracao: '50 a 60 minutos'
+    duracao: '50 a 60 minutos',
+    duracaoMin: 60
   },
   {
     id: 5,
@@ -94,7 +98,8 @@ const SERVICOS = [
       'Relaxamento e bem-estar total',
       'Ótimo para combinar com outros tratamentos'
     ],
-    duracao: '40 a 50 minutos'
+    duracao: '40 a 50 minutos',
+    duracaoMin: 50
   },
   {
     id: 6,
@@ -112,7 +117,8 @@ const SERVICOS = [
       'Produtos de qualidade e hipoalergênicos',
       'Técnica precisa para minimizar desconforto'
     ],
-    duracao: 'A partir de 20 minutos'
+    duracao: 'A partir de 20 minutos',
+    duracaoMin: 30
   },
   {
     id: 7,
@@ -130,7 +136,8 @@ const SERVICOS = [
       'Redução do aspecto de pele cansada',
       'Efeito de lifting leve e imediato'
     ],
-    duracao: '50 a 60 minutos'
+    duracao: '50 a 60 minutos',
+    duracaoMin: 60
   }
 ];
 
@@ -155,13 +162,12 @@ function renderServicos() {
   grid.innerHTML = SERVICOS.map(s => `
     <article class="servico-card reveal" data-id="${s.id}" tabindex="0" role="button" aria-label="Ver detalhes: ${s.nome}">
       <div class="servico-img" aria-hidden="true">
-        <span>${s.icon}</span>
+        ${s.icon}
         <div class="servico-img-overlay"></div>
       </div>
+      <span class="servico-tag">${s.tag}</span>
       <div class="servico-body">
-        <span class="servico-tag">${s.tag}</span>
         <h3>${s.nome}</h3>
-        <p>${s.resumo}</p>
         <div class="servico-footer">
           <span class="servico-preco">${s.preco}</span>
           <span class="servico-link" id="link-${s.id}">Ver detalhes &#8594;</span>
@@ -215,8 +221,33 @@ function abrirModal(id) {
     };
   }
 
+  document.getElementById('modalCalendar').onclick = () => adicionarAoCalendario(s);
+
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function adicionarAoCalendario(s) {
+  const inicio = new Date();
+  inicio.setDate(inicio.getDate() + 1);
+  inicio.setHours(10, 0, 0, 0);
+  const fim = new Date(inicio.getTime() + (s.duracaoMin || 60) * 60000);
+
+  const fmt = d => d.getFullYear().toString().padStart(4, '0') +
+    String(d.getMonth() + 1).padStart(2, '0') +
+    String(d.getDate()).padStart(2, '0') + 'T' +
+    String(d.getHours()).padStart(2, '0') +
+    String(d.getMinutes()).padStart(2, '0') + '00';
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: 'Consulta ' + s.nome + ' - Sara Lima Estética',
+    details: 'Agendamento via saralimaestetica.com.br. WhatsApp: (35) 9 9110-3879',
+    location: 'Rua Lázaro Ramos Pereira, 31 - São Januário, Caxambu - MG',
+    dates: fmt(inicio) + '/' + fmt(fim)
+  });
+
+  window.open('https://calendar.google.com/calendar/render?' + params.toString(), '_blank');
 }
 
 function fecharModal() {
